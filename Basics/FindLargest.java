@@ -12,6 +12,7 @@ public class FindLargest {
         int num3 = sc.nextInt();
 
         findLargest(num1, num2, num3);
+        getMax(num1, num2, num3);
         sc.close();
     }
 
@@ -25,5 +26,12 @@ public class FindLargest {
         }
 
         System.out.println("Max number in " + num1 +","+ num2 +","+ num3 +" is : " + max);
+    }
+
+    public static void getMax(int a, int b, int c){
+
+        int max = Math.max(c, Math.max(a,b));
+
+        System.out.println("Max is : " + max);
     }
 }
