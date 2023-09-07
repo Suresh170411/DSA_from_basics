@@ -7,7 +7,8 @@ public class PatterPrinting {
         // System.out.println("\n");
 
         // triangle2(5);
-        printInNums();
+        // printInNums();
+        printPatternWithNum();
     }
 
     public static void printTriangle1(int n){
@@ -37,6 +38,21 @@ public class PatterPrinting {
                 System.out.print(j + " ");
             }
             System.out.println();
+        }
+    }
+
+    public static void printPatternWithNum(){
+        
+        for (int i=1; i<=5; i++){
+            String num = "";
+            String star = "";
+            
+            for (int j=1; j<=i; j++){
+                num+= j+" ";
+                star+= "* ";
+            }
+            System.out.println(num);
+            System.out.println(star);
         }
     }
 }
