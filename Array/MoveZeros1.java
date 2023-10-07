@@ -5,6 +5,22 @@ public class MoveZeros1{
         int arr [] = {0,1,0,3,12};
 
         moveZeroesBruteForce(arr);
+        moveZeroes(arr);
+    }
+
+    public static void moveZeroes(int arr []){
+        int n = arr.length;
+        int index = 0;
+        
+        for (int i : arr){
+            if (i != 0){
+                arr[index++] = i;
+            }
+        }
+        while (index < n){
+            arr[index++] = 0;
+        }
+        System.out.println(Arrays.toString(arr));
     }
 
     public static void moveZeroesBruteForce(int arr []){
