@@ -6,9 +6,6 @@ import java.util.Stack;
 
 public class NXG_leetcode {
     public static void main(String[] args) {
-        //Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
-// Output: [-1,3,-1]
-
         int arr1[] = {4,1,2};
         int arr2[] = {1,3,4,2};
 
