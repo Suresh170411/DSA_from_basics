@@ -43,11 +43,14 @@ public class StockSpan{
                 st.pop();
             }
 
-            if (!st.isEmpty()){
-                res[i] = i - st.peek();
-            }else{
-                res[i] = i+1;
-            }
+            // if (!st.isEmpty()){
+            //     res[i] = i - st.peek();
+            // }else{
+            //     res[i] = i+1;
+            // }
+
+            res[i] = !st.isEmpty() ? i-st.peek() : i+1;
+            
             st.push(i);
         }
 
