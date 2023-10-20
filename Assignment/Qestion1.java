@@ -61,12 +61,12 @@ public class Qestion1 {
             map.put(s, map.getOrDefault(s, 0)+1);
         }
 
-        map
+        LinkedHashMap<String,Integer> lhmp = map
         .entrySet()
         .stream()
         .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
         .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (old,newVal)-> old, LinkedHashMap :: new));;
 
-
+        lhmp.keySet().stream().limit(limit).forEach((s) -> System.out.println(s));
     }
 }
