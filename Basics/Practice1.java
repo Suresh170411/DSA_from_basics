@@ -16,6 +16,9 @@ public class Practice1 {
         // nextGreaterElementRight(stackArr);
         // nextSmallerElementToRight(stackArr);
         nextSmallerElementToLeft(stackArr);
+
+        int stockSpan [] = {100,80,60,70,60,75,85};
+        stockSpanProblem(stockSpan);
     }
 
     public static void moveZeroesToRight(int arr []){
@@ -127,6 +130,25 @@ public class Practice1 {
             res[i] = !st.isEmpty() ? arr[st.peek()] : -1;
             st.push(i);
         }
+        System.out.println(Arrays.toString(res));
+    }
+
+    public static void stockSpanProblem(int arr []){
+        int n = arr.length;
+        int res [] = new int [n];
+        Stack<Integer> st = new Stack<>();
+
+        res[0] = 1;
+        st.push(0);
+
+        for (int i=1; i<n; i++){
+            while(!st.isEmpty() && arr[st.peek()] <= arr[i]){
+                st.pop();
+            }
+            res[i] = !st.isEmpty() ? i-st.peek() : i+1;
+            st.push(i);
+        }
+
         System.out.println(Arrays.toString(res));
     }
 }
