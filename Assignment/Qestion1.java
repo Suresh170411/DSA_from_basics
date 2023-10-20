@@ -1,6 +1,7 @@
 package Assignment;
 
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import java.util.*;
@@ -8,21 +9,25 @@ import java.util.*;
 public class Qestion1 {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        // Scanner sc = new Scanner(System.in);
 
-        int totalNumberOfSongs = sc.nextInt();
+        // int totalNumberOfSongs = sc.nextInt();
 
-        List<String> songList  = new ArrayList<>();
+        // List<String> songList  = new ArrayList<>();
 
-        for (int i=0; i<totalNumberOfSongs; i++){
-            songList.add(sc.next());
-        }
+        // for (int i=0; i<totalNumberOfSongs; i++){
+        //     songList.add(sc.next());
+        // }
 
-        int limit = sc.nextInt();
+        // int limit = sc.nextInt();
 
-        findTheFrequencyOfSongs(songList, limit);
+        // findTheFrequencyOfSongs(songList, limit);
 
-        sc.close();
+        // sc.close();
+
+        List<String> list = Arrays.asList("one","four","two","one","two","one","three");
+
+        newMethod(list, 3);
     }
 
     public static void findTheFrequencyOfSongs(List<String> songList , int limit){
@@ -47,5 +52,21 @@ public class Qestion1 {
             }
             count++;
         }
+    }
+
+    public static void newMethod(List<String> list, int limit){
+        HashMap<String, Integer> map = new HashMap<>();
+
+        for (String s : list){
+            map.put(s, map.getOrDefault(s, 0)+1);
+        }
+
+        map
+        .entrySet()
+        .stream()
+        .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (old,newVal)-> old, LinkedHashMap :: new));;
+
+
     }
 }
