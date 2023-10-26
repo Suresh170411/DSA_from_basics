@@ -19,6 +19,11 @@ public class Practice1 {
 
         int stockSpan [] = {100,80,60,70,60,75,85};
         stockSpanProblem(stockSpan);
+
+        String str = "{[()]}";
+
+        boolean res = validParantheses(str);
+        System.out.println(res);
     }
 
     public static void moveZeroesToRight(int arr []){
@@ -150,5 +155,25 @@ public class Practice1 {
         }
 
         System.out.println(Arrays.toString(res));
+    }
+
+    public static boolean validParantheses(String str){
+
+        Stack<Character> st = new Stack<>();
+
+        for (char c : str.toCharArray()){
+            if (c == '[' || c == '(' || c == '{'){
+                st.push(c);
+            }else {
+                if (st.isEmpty()) return false;
+
+                char top = st.pop();
+
+                if (c == '}' && (top == '(' || top == '[')) return false;
+                if (c == ')' && (top == '{' || top == '[')) return false;
+                if (c == ']' && (top == '(' || top == '{')) return false;
+            }
+        }
+        return st.isEmpty();
     }
 }
