@@ -61,15 +61,14 @@ public class MaxSum {
         }
 
         int curr_sum = sum;
-        int max = Integer.MIN_VALUE;
 
         for (int i=K; i<n; i++){
             curr_sum = curr_sum - arr[i-K] + arr[i];
 
-            if (curr_sum > max){
-                max = curr_sum;
+            if (curr_sum > sum){
+                sum = curr_sum;
             }
         }
-        System.out.println(max);
+        System.out.println(sum);
     }
 }
