@@ -14,4 +14,8 @@ public class Factorial {
         }
         System.out.println(res);
     }
+
+    public static void factorialUsingRecursion(int n){
+        
+    }
 }
