@@ -1,15 +1,26 @@
-package Recursion;
+// package Recursion;
 
 public class PrintNums {
     public static void main(String[] args) {
         int n = 5;
-        printNums(n);
+        printNumsAsc(n);
+        System.out.println("======");
+        printNumsDesc(n);
     }
 
-    public static void printNums(int n){
+    public static void printNumsAsc(int n){
         if (n==0) return;
+        else {
+            printNumsAsc(n-1);
+            System.out.println(n);
+        }
+    }
 
-        printNums(n-1);
-        System.out.println(n);
+    public static void printNumsDesc(int n){
+        if (n==0) return;
+        else {
+            System.out.println(n);
+            printNumsAsc(n-1);
+        }
     }
 }
