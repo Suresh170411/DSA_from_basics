@@ -2,13 +2,15 @@ package SlidingWindow;
 
 public class AnySubarrGivenSum {
     public static void main(String[] args) {
-        int arr [] = {1,4,20,3,10,5};
+        int arr [] = {1,2,3,30,10,20,1,2};
         int sum = 33;
 
         boolean res = slidingWindowTechnique(arr, sum);
         System.out.println(res);
 
         System.out.println(bruteForce(arr, sum));
+
+        slidingWindowTechnique2(arr, sum);
     }
 
     public static boolean slidingWindowTechnique(int arr[], int sum){
@@ -45,5 +47,27 @@ public class AnySubarrGivenSum {
             }
         }
         return false;
+    }
+
+    public static void slidingWindowTechnique2(int arr [], int sum){
+        int top = 0;
+        int windowSum = 0;
+        int max = Integer.MIN_VALUE;
+
+        for (int i=0; i<arr.length; i++){
+            while (windowSum < sum && top < arr.length) {
+                windowSum+= arr[top++];
+            }
+            if (windowSum == sum){
+                System.out.println(i+" "+ (top-1));
+                int diff = top-i;
+                if (diff > max){
+                    max = diff;
+                }
+            }
+            windowSum = windowSum - arr[i];
+        }
+
+        System.out.println(max);
     }
 }
