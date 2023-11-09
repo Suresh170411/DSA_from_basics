@@ -10,19 +10,12 @@ public class ReverseStack {
         st.push(3);
 
         revere();
-
-        int n = st.size();
-
-        for (int i=0; i<n; i++){
-            int a = st.pop();
-            System.out.println(a);
-        }
+        printStack(st);
     }
     
     public static void revere(){
         if (!st.isEmpty()){
-            int x = st.peek();
-            st.pop();
+            int x = st.pop();
             revere();
             insert(x);
         }
@@ -32,10 +25,18 @@ public class ReverseStack {
         if (st.isEmpty()){
             st.push(x);
         }else{
-            int a = st.peek();
-            st.pop();
+            int a = st.pop();
             insert(x);
             st.push(a);
+        }
+    }
+
+    public static void printStack(Stack<Integer> stack){
+        int n = st.size();
+
+        for (int i=0; i<n; i++){
+            int element = stack.pop();
+            System.out.println(element);
         }
     }
 }
