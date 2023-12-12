@@ -44,6 +44,23 @@ public class LinkedList {
         size++;
     }
 
+    // add element to the particular position
+    public void addAfterParticular(int data, int elem){
+        Node node = new Node(data);
+
+        if (head == null){
+            System.out.println("");
+        }
+
+        Node curr = head;
+
+        while (curr.data != elem){
+            curr = curr.next;
+        }
+        node.next = curr.next;
+        curr.next = node;
+    }
+
     // for odd length linked list this function will find the middle node
     public int findMiddleNodeODD(){
         Node slow = head;
@@ -136,7 +153,9 @@ public class LinkedList {
         list.addLast(4);
         list.addLast(5);
         list.addLast(6);
+        list.addAfterParticular(10, 3);
 
-        System.out.println(list.kThNodeFromEndOPT(2));
+        // System.out.println(list.kThNodeFromEndOPT(2));
+        list.print();
     }
 }
