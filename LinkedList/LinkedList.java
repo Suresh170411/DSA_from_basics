@@ -176,6 +176,17 @@ public class LinkedList {
         prev.next = null;
     }
 
+    // delete a particular node from SLL
+    public void deleteParticular(int element){
+        Node curr = head, prev = null;
+
+        while (curr.data != element){
+            prev = curr;
+            curr = curr.next;
+        }
+        prev.next = curr.next;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
 
@@ -187,7 +198,8 @@ public class LinkedList {
         list.addLast(6);
         
         // list.deleteFirst();
-        list.deleteLast();
+        // list.deleteLast();
+        // list.deleteParticular(3);
 
         // System.out.println(list.kThNodeFromEndOPT(2));
         list.print();
