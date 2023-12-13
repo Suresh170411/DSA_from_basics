@@ -187,6 +187,18 @@ public class LinkedList {
         prev.next = curr.next;
     }
 
+    // delete a node before a particular element of SLL
+    public void deleteBeforeElement(int element){
+        Node curr = head, prev = null, prevToprev = null;
+
+        while (curr.data != element){
+            prevToprev = prev;
+            prev = curr;
+            curr = curr.next;
+        }
+        prevToprev.next = prev.next;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
 
@@ -200,7 +212,7 @@ public class LinkedList {
         // list.deleteFirst();
         // list.deleteLast();
         // list.deleteParticular(3);
-
+        list.deleteBeforeElement(4);
         // System.out.println(list.kThNodeFromEndOPT(2));
         list.print();
     }
