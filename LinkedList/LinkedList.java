@@ -165,6 +165,17 @@ public class LinkedList {
         head = head.next;
     }
 
+    // delete last node from the SLL
+    public void deleteLast(){
+        Node curr = head, prev = null;
+
+        while (curr.next != null){
+            prev = curr;
+            curr = curr.next;
+        }
+        prev.next = null;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
 
@@ -175,7 +186,8 @@ public class LinkedList {
         list.addLast(5);
         list.addLast(6);
         
-        list.deleteFirst();
+        // list.deleteFirst();
+        list.deleteLast();
 
         // System.out.println(list.kThNodeFromEndOPT(2));
         list.print();
