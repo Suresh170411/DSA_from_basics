@@ -199,6 +199,16 @@ public class LinkedList {
         prevToprev.next = prev.next;
     }
 
+    // delete a node after a particular element of SLL
+    public void deleteAfterElement(int element){
+        Node curr = head;
+
+        while (curr.data != element){
+            curr = curr.next;
+        }
+        curr.next = curr.next.next;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
 
@@ -212,7 +222,9 @@ public class LinkedList {
         // list.deleteFirst();
         // list.deleteLast();
         // list.deleteParticular(3);
-        list.deleteBeforeElement(4);
+        // list.deleteBeforeElement(4);
+        list.deleteAfterElement(2);
+
         // System.out.println(list.kThNodeFromEndOPT(2));
         list.print();
     }
