@@ -157,6 +157,14 @@ public class LinkedList {
         return fast.data;
     }
 
+    // delete first node from the SLL
+    public void deleteFirst(){
+        if (head == null){
+            System.out.println("Empty !");
+        }
+        head = head.next;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
 
@@ -166,8 +174,8 @@ public class LinkedList {
         list.addLast(4);
         list.addLast(5);
         list.addLast(6);
-        list.addAfterParticular(10, 3);
-        list.addBeforeElement(20, 2);
+        
+        list.deleteFirst();
 
         // System.out.println(list.kThNodeFromEndOPT(2));
         list.print();
