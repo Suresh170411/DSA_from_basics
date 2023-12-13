@@ -14,6 +14,19 @@ public class LinkedList {
     Node head;
     private int size;
 
+    // add element before an element
+    public void addBeforeElement(int data, int element){
+        Node newNode = new Node(data);
+        Node curr = head, prev = null;
+
+        while (curr.data != element){
+            prev = curr;
+            curr = curr.next;
+        }
+        newNode.next = curr;
+        prev.next = newNode;
+    }
+
     // add element to the last of the linkdedlist
     public void addLast(int data){
         Node node = new Node(data);
@@ -154,6 +167,7 @@ public class LinkedList {
         list.addLast(5);
         list.addLast(6);
         list.addAfterParticular(10, 3);
+        list.addBeforeElement(20, 2);
 
         // System.out.println(list.kThNodeFromEndOPT(2));
         list.print();
