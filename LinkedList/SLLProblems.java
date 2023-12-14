@@ -37,7 +37,7 @@ public class SLLProblems {
         }
     }
 
-    // reverse SLL
+    // reverse SLL without reversing SLL using recursion
     public void reverseSLL(Node curr){
 
         if (curr == null){
@@ -46,6 +46,22 @@ public class SLLProblems {
             reverseSLL(curr.next);
             System.out.println(curr.data);
         }
+    }
+
+    // reverse SLL
+    public void reverseLinkedList(){
+        Node curr = head;
+        Node nextNode = null;
+        Node prevNode = null;
+
+        while (curr != null){
+            nextNode = curr.next;
+            curr.next = prevNode;
+            prevNode = curr;
+            curr = nextNode;
+        }
+        head = prevNode;
+        print();
     }
 
     public static void main(String[] args) {
@@ -58,6 +74,7 @@ public class SLLProblems {
         list.add(5);
 
         // list.print();
-        list.reverseSLL(list.head);
+        // list.reverseSLL(list.head);
+        list.reverseLinkedList();
     }
 }
