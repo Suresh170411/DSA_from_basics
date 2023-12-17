@@ -21,7 +21,7 @@ public class FindSmallest {
             }else if (arr[low] <= arr[mid]){
                 low = mid+1;
             }else {
-                high = low-1;
+                high = mid-1;
             }
         }
         return -1;

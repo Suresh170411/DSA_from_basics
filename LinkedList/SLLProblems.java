@@ -28,7 +28,7 @@ public class SLLProblems {
     }
     
     // print all nodes
-    public void print(){
+    public void print(Node head){
         Node curr = head;
 
         while (curr != null){
@@ -61,8 +61,27 @@ public class SLLProblems {
             curr = nextNode;
         }
         head = prevNode;
-        print();
+        print(head);
     }
+
+    // reverse linkedlist by k groups
+    public Node reverseByK(Node head, int k){
+        Node nextNode = null, prev = null, curr = head;
+
+        int count = 0;
+
+        while (curr != null && count < k){
+            nextNode = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextNode;
+            count++;
+        }
+        if (nextNode != null){
+            head.next = reverseByK(nextNode, k);
+        }
+        return prev;
+    }    
 
     public static void main(String[] args) {
         SLLProblems list = new SLLProblems();
@@ -72,9 +91,14 @@ public class SLLProblems {
         list.add(3);
         list.add(4);
         list.add(5);
+        list.add(6);
+        list.add(7);
+        list.add(8);
 
         // list.print();
         // list.reverseSLL(list.head);
-        list.reverseLinkedList();
+        // list.reverseLinkedList();
+        Node curr = list.reverseByK(list.head, 3);
+        list.print(curr);
     }
 }
