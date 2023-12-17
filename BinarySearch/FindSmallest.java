@@ -11,6 +11,10 @@ public class FindSmallest {
         int low = 0;
         int high = n-1;
 
+        if (arr[low] <= arr[high]){
+            return 0;
+        }
+
         while (low <= high) {
             int mid = low+(high-low)/2;
 
