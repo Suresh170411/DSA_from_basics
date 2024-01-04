@@ -5,14 +5,6 @@ public class DigitSum {
         
         int num = 125;
 
-        // int sum = 0;
-
-        // while (num != 0){
-        //     sum+= num%10;
-        //     num = num/10;
-        // }
-        // System.out.println(sum);
-
         newApproach(num);
     }
 
@@ -20,7 +12,7 @@ public class DigitSum {
         
         int sum = 0;
 
-        for (int i=0; i<=n; i++){
+        while (n != 0){
             sum+= n%10;
             n = n/10;
         }
